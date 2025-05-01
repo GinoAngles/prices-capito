@@ -3,7 +3,6 @@ package com.sisu.prices.application.exception;
 import com.sisu.prices.application.exception.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,13 +14,16 @@ import java.util.List;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    //Posibles codigos personalizados
+    public static final String ERROR_01 = "001";
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<List<ErrorResponse>> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         List<ErrorResponse> errorList = new ArrayList<>();
         ex.getBindingResult()
                 .getAllErrors()
                 .forEach(error ->
-                        errorList.add(new ErrorResponse(((FieldError) error).getField(), error.getDefaultMessage())));
+                        errorList.add(new ErrorResponse(ERROR_01, error.getDefaultMessage())));
 
         return new ResponseEntity<>(errorList, HttpStatus.BAD_REQUEST);
     }
