@@ -1,5 +1,6 @@
 package com.sisu.prices.application.exception.dto;
 
+@SuppressWarnings("unused")
 public class ErrorResponse {
     private String errorCode;
     private String message;
