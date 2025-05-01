@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

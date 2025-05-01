@@ -11,6 +11,7 @@ import java.util.Objects;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+@SuppressWarnings("unused")
 @Entity
 public class Price {
 

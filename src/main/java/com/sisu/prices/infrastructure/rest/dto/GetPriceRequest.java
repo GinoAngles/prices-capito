@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Positive;
 
 import java.time.LocalDateTime;
 
+@SuppressWarnings("unused")
 public class GetPriceRequest {
 
     @NotNull(message = "The dateAt can not be null")
